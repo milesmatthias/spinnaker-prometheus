@@ -1,0 +1,12 @@
+resource "kubernetes_config_map" "spinnaker-config" {
+  metadata {
+    name      = "%DASHBOARD%"
+    namespace = "${kubernetes_namespace.spinnaker_namespace.metadata.0.name}"
+
+    labels {
+      app = "spin-manager"
+      grafana_dashboard = "true"
+    }
+  }
+
+  data {

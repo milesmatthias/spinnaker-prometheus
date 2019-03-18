@@ -1,0 +1,4 @@
+terraform/generated/*.tf
+helm/generated/*.yaml
+spinnaker-monitoring-version-*
+spinnaker-monitoring.zip

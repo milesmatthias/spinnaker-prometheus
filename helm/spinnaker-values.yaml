@@ -1,0 +1,6 @@
+halyard:
+  additionalScripts:
+    create: true
+    data:
+      post-install-config.sh: |-
+        hal --daemon-endpoint $DAEMON_ENDPOINT config metric-stores prometheus enable
