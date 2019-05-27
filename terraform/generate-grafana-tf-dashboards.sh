@@ -2,14 +2,16 @@
 
 echo "Getting the latest Spinnaker Grafana dashboards and adding to Terraform..."
 
-curl -sL0 -o spinnaker-monitoring.zip https://github.com/spinnaker/spinnaker-monitoring/archive/version-0.11.2.zip
+VERSION=0.13.0
+
+curl -sL0 -o spinnaker-monitoring.zip https://github.com/spinnaker/spinnaker-monitoring/archive/version-$VERSION.zip
 
 unzip -qo spinnaker-monitoring.zip
 
 # apply our dashboard configmap with label 'grafana_dashboard'
 #   so the dashboard sidecar will pick it up and add the dashboard
 
-DASH_DIR=spinnaker-monitoring-version-0.11.2/spinnaker-monitoring-third-party/third_party/prometheus
+DASH_DIR=spinnaker-monitoring-version-$VERSION/spinnaker-monitoring-third-party/third_party/prometheus
 for filename in $DASH_DIR/*-dashboard.json; do
   fn_only=$(basename $filename)
   fn_root="${fn_only%.*}"
