@@ -21,7 +21,7 @@ for filename in $DASH_DIR/*-dashboard.json; do
   uid=$(uuidgen)
 
   cat grafana-dashboard.tf.template | sed -e "s/%DASHBOARD%/${fn_root}/" > $dest_file
-  printf "    ${fn_only} = \"" >> $dest_file
+  printf "    \"${fn_only}\" = \"" >> $dest_file
 
   cat $filename | sed -e "s/\"uid\": null/\"uid\": \"${uid}\"/" \
     | sed -e "/\"__inputs\"/,/],/d" \

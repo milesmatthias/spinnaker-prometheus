@@ -3,10 +3,10 @@ resource "kubernetes_config_map" "spin-prometheus-%DASHBOARD%" {
     name      = "%DASHBOARD%"
     namespace = "${var.namespace}"
 
-    labels {
+    labels = {
       app = "spin-manager"
       grafana_dashboard = "true"
     }
   }
 
-  data {
+  data = {
