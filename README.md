@@ -19,7 +19,7 @@ The Spinnaker Monitoring repository has several default Grafana dashboards in th
 
 Scripts in this repo can download those dashboards and convert them to K8s/Prometheus Operator compliant formats for adding to Grafana.
 
-1. Plain ConfigMaps (YAML): this is done at the end of the `helm` demo script.
+1. Plain ConfigMaps (YAML): see the `helm` directory.
 2. Terraform ConfigMaps: see the `terraform` directory.
 
 ## Helm setup
