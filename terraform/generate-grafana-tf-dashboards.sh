@@ -31,7 +31,7 @@ for filename in $DASH_DIR/*-dashboard.json; do
     | sed -e ":a" -e "N" -e '$!ba' -e "s/\n/ /g" \
     | sed -e "s/$/\"/" \
     | sed -e "s/\\\\\\\\\"/\\\\\\\\\\\\\"/g" \
-    | sed -e "s/ //g" \
+    | sed -e "s/  //g" \
   >> $dest_file
 
   echo -en "  }\n}" >> $dest_file
