@@ -10,7 +10,7 @@ CLUSTER_NAME=spinnaker-prometheus-operator
 
 echo "Creating a cluster called ${CLUSTER_NAME}..."
 gcloud container clusters create $CLUSTER_NAME \
-  --zone $ZONE --project $PROJECT
+  --zone $ZONE --project $PROJECT --machine-type=n2-standard-4
 
 echo "Getting kubectl creds for your cluster..."
 gcloud container clusters get-credentials $CLUSTER_NAME \
