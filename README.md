@@ -38,3 +38,11 @@ If you use Terraform to make changes to your cluster, you can use the `generate-
 This will generate TF files for each dashboard. Apply the generated Terraform files and Grafana will have new dashboards for Spinnaker, automatically reading from your Prometheus Operator.
 
 The Terraform demo does not setup a cluster or install Spinnaker or Prometheus Operator, as that is straightforward on your own with the Helm provider.
+
+## DEMO
+
+`cd helm && ./demo.sh` will create a GCP cluster, use Helm to install Spinnaker & Prometheus Operator with the Service Monitor & Grafana dashboards created. Read the code to understand what's going on under the hood, or run the script yourself to create an environment where you can play around with these resources.
+
+If you do execute the demo to create the infrastructure in a GCP project, you can connect to the Spinnaker, Prometheus, and Grafana UI by running `./connect.sh`.
+
+Four kubectl port-forward commands will execute in the background, so you'll want to `ps -efw | grep kubectl` and `kill <pid-id>` once you're done using the UIs in order to close the port forwarding.
