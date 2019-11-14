@@ -64,3 +64,4 @@ source generate-grafana-yaml-dashboards.sh
 
 echo "applying dashboards as configmaps to cluster..."
 kubectl apply -f generated
+kubectl apply -f rz-spinnaker-dashboard.yaml
