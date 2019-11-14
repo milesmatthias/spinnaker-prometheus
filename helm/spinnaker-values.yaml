@@ -3,6 +3,8 @@ halyard:
     create: true
     data:
       post-install-config.sh: |-
+        hal --daemon-endpoint $DAEMON_ENDPOINT config provider kubernetes enable
+        hal --daemon-endpoint $DAEMON_ENDPOINT config features edit --artifacts true
         hal --daemon-endpoint $DAEMON_ENDPOINT config metric-stores prometheus enable
         hal --daemon-endpoint $DAEMON_ENDPOINT config canary enable
         hal --daemon-endpoint $DAEMON_ENDPOINT config canary prometheus enable
