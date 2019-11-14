@@ -3,3 +3,4 @@ helm/generated/*.yaml
 spinnaker-monitoring-version-*
 spinnaker-monitoring-master
 spinnaker-monitoring.zip
+*.pid
