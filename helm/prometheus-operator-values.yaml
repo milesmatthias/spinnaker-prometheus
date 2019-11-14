@@ -1,4 +1,6 @@
 prometheus:
+  service:
+    type: NodePort
   additionalServiceMonitors:
   - name: spinnaker-all-metrics
     labels:

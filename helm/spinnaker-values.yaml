@@ -4,3 +4,6 @@ halyard:
     data:
       post-install-config.sh: |-
         hal --daemon-endpoint $DAEMON_ENDPOINT config metric-stores prometheus enable
+        hal --daemon-endpoint $DAEMON_ENDPOINT config canary enable
+        hal --daemon-endpoint $DAEMON_ENDPOINT config canary prometheus enable
+        hal --daemon-endpoint $DAEMON_ENDPOINT config canary prometheus account add app-cluster --base-url http://10.128.0.51

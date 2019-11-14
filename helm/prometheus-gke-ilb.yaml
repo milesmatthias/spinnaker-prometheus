@@ -1,0 +1,18 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: prometheus-gke-ilb
+  annotations:
+    cloud.google.com/load-balancer-type: "Internal"
+  labels:
+    app: prometheus
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 80
+      targetPort: 9090
+      protocol: TCP
+      name: http
+  selector:
+    app: prometheus
+    prometheus: prometheus-operator-prometheus

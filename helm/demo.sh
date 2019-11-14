@@ -10,7 +10,8 @@ CLUSTER_NAME=spinnaker-prometheus-operator
 
 echo "Creating a cluster called ${CLUSTER_NAME}..."
 gcloud container clusters create $CLUSTER_NAME \
-  --zone $ZONE --project $PROJECT --machine-type=n2-standard-4
+  --enable-ip-alias --zone $ZONE --project $PROJECT \
+  --machine-type=n1-standard-4
 
 echo "Getting kubectl creds for your cluster..."
 gcloud container clusters get-credentials $CLUSTER_NAME \
@@ -38,6 +39,7 @@ sleep 10 # wait for tiller-deploy to get setup
 echo "Installing Spinnaker with helm..."
 helm install stable/spinnaker --name spinnaker \
   --values spinnaker-values.yaml
+
 
 echo "Installing Prometheus Operator with helm..."
 helm install stable/prometheus-operator --name prometheus-operator \
