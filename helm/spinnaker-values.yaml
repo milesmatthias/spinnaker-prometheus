@@ -9,4 +9,6 @@ halyard:
         hal --daemon-endpoint $DAEMON_ENDPOINT config canary edit --default-metrics-store prometheus
         hal --daemon-endpoint $DAEMON_ENDPOINT config canary enable
         hal --daemon-endpoint $DAEMON_ENDPOINT config canary prometheus enable
+        # this ip is probably different for you
         hal --daemon-endpoint $DAEMON_ENDPOINT config canary prometheus account add app-cluster --base-url http://10.128.0.51
+        # also add a gcs or aws canary store
